@@ -1,0 +1,1 @@
+Find the average day-wise sale of fruits, Perform the map-reduce operation on the orders collection to group by the Order_date, and calculate the sum of the price for each Day :

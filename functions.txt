@@ -1,0 +1,16 @@
+#mapper function 
+var mapFun = function(){emit(this.ord_date, this.price);}
+
+#reducer function
+var redFun = function(key,value){ return Array.avg(value);}
+
+#mongodb mapread command
+db.orders.mapReduce(
+		mapFun , 
+		redFun ,
+		{  
+		   query:  { ord_date: { $gt: ISODate("2020-03-01")}},
+		   out: "output" })
+
+#check the output
+db.output.find()
